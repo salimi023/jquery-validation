@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <link href="libs/w3.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <span id="validationStatus"></span>
+    <div id="wrapper" class="w3-row">
+        <h1>Form</h1>
+        <form method="POST" action="">
+
+            <!-- Text -->
+            <div class="form-group">
+                <label for="inputText">Text:</label>
+                <input type="text" name="inputText" id="inputText" class="w3-input w3-border valid" />
+                <span class="alert"></span>
+            </div>
+
+            <!-- Date -->
+            <div class="form-group">
+                <label for="inputDate">Date:</label>
+                <input type="date" name="inputDate" id="inputDate" class="w3-input w3-border valid" />
+                <span class="alert"></span>
+            </div>
+
+            <!-- Datetime-local -->
+            <div class="form-group">
+                <label for="inputDateTimeLocal">Date-Time Local:</label>
+                <input type="datetime-local" name="inputDateTimeLocal" id="inputDateTimeLocal" class="w3-input w3-border valid" />
+                <span class="alert"></span>
+            </div>
+
+            <!-- Time -->
+            <div class="form-group">
+                <label for="inputTime">Time:</label>
+                <input type="time" name="inputTime" id="inputTime" class="w3-input w3-border valid" />
+                <span class="alert"></span>
+            </div>
+
+            <!-- Month -->
+            <div class="form-group">
+                <label for="inputMonth">Month:</label>
+                <input type="month" name="inputMonth" id="inputMonth" class="w3-input w3-border valid" />
+                <span class="alert"></span>
+            </div>
+
+            <!-- Week -->
+            <div class="form-group">
+                <label for="inputWeek">Week:</label>
+                <input type="week" name="inputWeek" id="inputWeek" class="w3-input w3-border valid" />
+                <span class="alert"></span>
+            </div>
+
+            <!-- File-->
+            <div class="form-group">
+                <label for="inputFile">File:</label>
+                <input type="file" name="inputFile" id="inputFile" class="w3-input w3-border valid" />
+                <span class="alert"></span>
+            </div>
+
+            <!-- Number -->
+            <div class="form-group">
+                <label for="inputNumber">Number:</label>
+                <input type="number" name="inputNumber" id="inputNumber" class="w3-input w3-border valid" />
+                <span class="alert"></span>
+            </div>
+
+            <!-- E-mail -->
+            <div class="form-group">
+                <label for="inputEmail">E-mail:</label>
+                <input type="email" name="inputEmail" id="inputEmail" class="w3-input w3-border valid" />
+                <span class="alert"></span>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <div class="w3-row pass">
+                    <label for="inputPassword">Password:</label>
+                    <input type="password" name="inputPassword" id="inputPassword" class="w3-input w3-border valid" />
+                    <span class="alert"></span>
+                    <span class="pass-check"></span>
+                </div>
+                <div class="w3-row pass">
+                    <label for="inputPassConf">Verify Password:</label>
+                    <input type="password" name="inputPassConf" id="inputPassConf" class="w3-input w3-border valid" />
+                    <span class="alert"></span>
+                </div>
+            </div>
+
+            <!-- Select -->
+            <div class="form-group">
+                <label for="inputSelect">Select:</label>
+                <select name="inputSelect" id="inputSelect" class="w3-input w3-border valid">
+                    <option value="select" disabled selected>Please select</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+                <span class="alert"></span>
+            </div>
+
+            <!-- Textarea (CKEditor) -->
+            <div class="form-group">
+                <label for="inputTextareaCKEditor">Textearea (CKEditor):</label>
+                <textarea id="inputTextareaCKEditor" name="inputTextareaCKEditor" class="w3-input w3-border valid ckeditor"></textarea>
+                <span class="alert"></span>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group">
+                <label for="inputTextarea">Textearea:</label>
+                <textarea name="inputTextarea" id="inputTextarea" class="w3-input w3-border valid"></textarea>
+                <span class="alert"></span>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="form-group">
+                <label for="inputCheckbox">Checkbox:</label><br />
+                <input type="checkbox" name="inputCheckbox" id="check1" class="w3-check valid" />&nbsp;1&nbsp;
+                <input type="checkbox" name="inputCheckbox" id="check2" class="w3-check valid" />&nbsp;2&nbsp;
+                <input type="checkbox" name="inputCheckbox" id="check3" class="w3-check valid" />&nbsp;3<br />
+                <span class="alert"></span>
+            </div>
+
+            <!-- Radio button -->
+            <div class="form-group">
+                <label for="inputRadio">Radio button:</label><br />
+                <input type="radio" name="inputRadio" id="radio1" class="w3-radio valid" />&nbsp;1&nbsp;
+                <input type="radio" name="inputRadio" id="radio2" class="w3-radio valid" />&nbsp;2&nbsp;
+                <input type="radio" name="inputRadio" id="radio3" class="w3-radio valid" />&nbsp;3<br />
+                <span class="alert"></span>
+            </div>
+
+            <input type="submit" name="submit" class="w3-btn w3-red w3-round send" value="Send" />
+        </form>
+    </div>
+    <script src="libs/jquery-3.4.1.min.js"></script>
+    <script src="validation.js"></script>
+    <script src="libs/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('inputTextareaCKEditor');
+    </script>
+    <script>
+        $(document).ready(function() {
+
+            $(".send").click(function() {
+
+                setTimeout(function() {
+                    if ($("span#validationStatus").text() === "") {
+                        // Your submission code comes here
+                        alert("Successful submission!");
+                        location.reload();
+                    }
+                }, 500);
+            });
+        });
+    </script>
+</body>
+
+</html>
