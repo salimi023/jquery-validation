@@ -1,4 +1,4 @@
-# BASIC JQUERY VALIDATION OF HTML5 INPUT FIELDS AND CKEDITOR TEXTAREA
+# Basic jQuery validation of HTML5 input fields and CKEditor text area
 
 Basic jQuery script to validate most of the HTML5 input fields and CKEditor textarea.
 
