@@ -2,11 +2,11 @@
 
 Basic jQuery script to validate most of the HTML5 input fields and CKEditor textarea.
 
-## MINIMUM REQUIREMENTS
+## Minimum Requirements
 
 * jQuery library
 
-## TYPES OF VALIDATED HTML5 INPUT FIELDS
+## Types of validated HTML5 input fields
 
 * text,
 * date,
@@ -24,7 +24,7 @@ Basic jQuery script to validate most of the HTML5 input fields and CKEditor text
 * radio button,
 * CKEditor textarea.
 
-## SYNTAX
+## Syntax
 
 The obligatory input field must have
 
@@ -43,6 +43,6 @@ If the ```<span>``` element is empty, the validation had not returned any valida
 
 PLEASE NOTE, THAT THE SCRIPT - WITH THE EXCEPTION OF THE E-MAIL TYPE FIELD - CHECKS ONLY WHETHER A FIELD IS FILLED IN OR NOT AND DOES NOT VALIDATE DATATYPES BEYOND THE DEFAULT CAPABILITIES OF THE HTML5 INPUT FIELDS.
 
-## LICENSE
+## License
 
 The script can be used according to the rules of MIT license.
