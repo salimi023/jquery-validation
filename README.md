@@ -1,6 +1,6 @@
-# Basic jQuery validation of HTML5 input fields and CKEditor text area
+# Basic multilingual jQuery validation of HTML5 input fields and CKEditor text area
 
-Basic jQuery script to validate most of the HTML5 input fields and CKEditor textarea.
+Basic jQuery script to validate most of the HTML5 input fields and CKEditor textarea. Necessary language variants can be added to the relating part of the script (after the comment of Language selection).The language can be set in the lang variable by the selected language code (e.g ```var lang = "hu"```).
 
 ## Minimum Requirements
 
