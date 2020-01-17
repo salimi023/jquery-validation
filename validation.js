@@ -3,6 +3,35 @@ $(document).ready(function() {
     $(".send").click(function(e) {
         e.preventDefault();
         var validStatus = [];
+        var fileAlert, textAlert, emailAlert, passwordAlert, passwordLengthAlert, passwordConfAlert, selectAlert, textareaAlert, checkBoxRadioAlert;
+
+        var lang = "hu";
+
+        switch (lang) {
+
+            case "hu":
+                fileAlert = "Kérem, válasszon ki egy fájlt!";
+                textAlert = "Kérem, töltse ki a mezőt!";
+                emailAlert = "Kérem, adjon meg egy érvényes e-mail címet!";
+                passwordAlert = "Kérem, adjon meg egy jelszót!";
+                passwordLengthAlert = "A jelszó minimális hossza 6 karakter!";
+                passwordConfAlert = "A megadott jelszavak nem egyeznek meg egymással!";
+                selectAlert = "Kérem, válasszon egy lehetőséget!";
+                textareaAlert = "Kérem, töltse ki a szövegmezőt!";
+                checkBoxRadioAlert = "Kérem, válasszon a lehetőségek közül!";
+                break;
+
+            case "en":
+                fileAlert = "Please, select a file!";
+                textAlert = "Please, provide an answer!";
+                emailAlert = "Please, provide a valid e-mail address!";
+                passwordAlert = "Please, provide a password!";
+                passwordLengthAlert = "The minimal length of password is 6 characters!";
+                passwordConfAlert = "The two passwords are not identical!";
+                selectAlert = "Please, select and option!";
+                textareaAlert = "Please, provide a text!";
+                break;
+        }
 
         $(".valid").each(function() {
 
@@ -18,7 +47,7 @@ $(document).ready(function() {
                 case $(this).is("input[type='file']"): // File
                 case $(this).is("input[type='number']"): // Number
 
-                    var errorMsg = $(this).is("input[type='file']") ? "Please, select a file!" : "Please, provide an answer!";
+                    var errorMsg = $(this).is("input[type='file']") ? fileAlert : textAlert;
 
                     if ($(this).val() === '') {
                         $(this).siblings("span.alert").text(errorMsg);
@@ -38,14 +67,14 @@ $(document).ready(function() {
                         var checkEmail = rem.test($(this).val());
 
                         if (checkEmail == false) {
-                            $(this).siblings("span.alert").text("Please, provide a valid e-mail address!");
+                            $(this).siblings("span.alert").text(emailAlert);
                             validStatus.push($(this).attr("id"));
                         } else {
                             $(this).siblings("span.alert").text("");
                             removeItem($(this).attr("id"), validStatus);
                         }
                     } else {
-                        $(this).siblings("span.alert").text("Please, provide a valid e-mail address!");
+                        $(this).siblings("span.alert").text(emailAlert);
                         validStatus.push($(this).attr("id"));
                     }
                     break;
@@ -53,7 +82,7 @@ $(document).ready(function() {
                 case $(this).is("input[type='password']"): // Input (password)
 
                     if ($(this).val() === '') {
-                        $(this).siblings("span.alert").text("Please, provide a password!");
+                        $(this).siblings("span.alert").text(passwordAlert);
                         validStatus.push($(this).attr("id"));
                     } else {
 
@@ -68,7 +97,7 @@ $(document).ready(function() {
                             });
 
                             if (passwords[0] !== passwords[1]) {
-                                $(this).siblings("span.pass-check").text("The two passwords are not identical!");
+                                $(this).siblings("span.pass-check").text(passwordConfAlert);
                                 validStatus.push($(this).attr("id"));
                                 passwords = [];
                                 return;
@@ -78,7 +107,7 @@ $(document).ready(function() {
                             }
                         } else {
                             $(this).siblings("span.pass-check").text("");
-                            $(this).siblings("span.alert").text("The minimal length of password is 6 characters!");
+                            $(this).siblings("span.alert").text(passwordLengthAlert);
                             validStatus.push($(this).attr("id"));
                         }
                     }
@@ -87,7 +116,7 @@ $(document).ready(function() {
                 case $(this).is("select"): // Input (select)
 
                     if (($(this).val() === '') || ($(this).children(':selected').attr("disabled"))) {
-                        $(this).siblings("span.alert").text("Please, select and option!");
+                        $(this).siblings("span.alert").text(selectAlert);
                         validStatus.push($(this).attr("id"));
                     } else {
                         $(this).siblings("span.alert").text("");
@@ -98,7 +127,7 @@ $(document).ready(function() {
                 case $(this).is("textarea.ckeditor"): // CKEditor textarea
 
                     if (!CKEDITOR.instances['inputTextareaCKEditor'].getData().length) {
-                        $(this).siblings("span.alert").text("Please, provide a text!");
+                        $(this).siblings("span.alert").text(textareaAlert);
                         validStatus.push($(this).attr("id"));
                     } else {
                         $(this).siblings("span.alert").text("");
@@ -109,7 +138,7 @@ $(document).ready(function() {
                 case $(this).is("textarea"): // Textarea
 
                     if ($(this).val() === '') {
-                        $(this).siblings("span.alert").text("Please, provide a text!");
+                        $(this).siblings("span.alert").text(textareaAlert);
                         validStatus.push($(this).attr("id"));
                     } else {
                         $(this).siblings("span.alert").text("");
@@ -124,7 +153,7 @@ $(document).ready(function() {
                     var itemName = $(this).attr("name");
 
                     if (!$("input[name='" + itemName + "']:checked").val()) {
-                        $(this).siblings("span.alert").text("Please, select an option!");
+                        $(this).siblings("span.alert").text(selectAlert);
                         validStatus.push($(this).attr("name"));
                     } else {
                         $(this).siblings("span.alert").text("");
