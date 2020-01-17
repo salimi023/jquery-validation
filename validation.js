@@ -5,6 +5,7 @@ $(document).ready(function() {
         var validStatus = [];
         var fileAlert, textAlert, emailAlert, passwordAlert, passwordLengthAlert, passwordConfAlert, selectAlert, textareaAlert, checkBoxRadioAlert;
 
+        /** Language selection */
         var lang = "hu";
 
         switch (lang) {
@@ -32,6 +33,8 @@ $(document).ready(function() {
                 textareaAlert = "Please, provide a text!";
                 break;
         }
+
+        /** End of language selection */
 
         $(".valid").each(function() {
 
